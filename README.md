@@ -94,3 +94,4 @@ dsreportr::use_session_markdown("file.Rmd")
 to get the necessary markdown appended to the end of the file.
 
 
+NB: Make sure the image banner part gets integrated and test the whole create package step next.

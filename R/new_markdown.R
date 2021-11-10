@@ -22,12 +22,17 @@ new_markdown<-function(tmpl="dsreportr::ds_pdf", name="Untitled.Rmd") {
   if (file.exists(name)) {
     orig_name <- name
     name <- sprintf("Untitled_%s.Rmd", format(Sys.time(), '%Y%m%d'))
-    message(sprintf("%s already exists, using %s instead.", orig_name, name))
+    cli::cli_alert_warning("{orig_name} already exists, using {name} instead.")
   }
   # Now find the file
   f <- system.file(file.path("rmarkdown","templates",tmpl$template,"skeleton"),
               "skeleton.Rmd",
               package = tmpl$package)
   # And copy f to name.
-  file.copy(f, name)
+  file.copy(f, name) ||
+    cli::cli_abort("Could not copy {f} to {name}.")
+
+  cli::cli_alert_success("Copied {f} to {name} successfully.")
+
+  TRUE
 }

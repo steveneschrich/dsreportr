@@ -23,11 +23,8 @@
 #' for debugging since one can see the latex after replacements, etc. It
 #' should usually be FALSE to keep things tidy.
 #'
-#' @param latex_engine The default latex engine, which should be pdflatex
-#' @param fig_caption Use figure captions
-#' @param template Latex template file (default is ds_pdf.tex).
-#' @param ... Other parameters to pass to pdf_document2().
-#'
+#' @param ... Parameters to pass to pdf_document2().
+#' @param template Latex template for use in markdown (see \code{\link{latex_template}}).
 #' @return A compiled pdf.
 #' @export
 ds_pdf <- function(..., template = dsreportr::latex_template()) {

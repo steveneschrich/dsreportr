@@ -4,21 +4,12 @@
 \alias{ds_pdf}
 \title{Generate PDF based on Generic Data Science Template}
 \usage{
-ds_pdf(
-  ...,
-  latex_engine = "pdflatex",
-  fig_caption = TRUE,
-  template = latex_template()
-)
+ds_pdf(..., template = dsreportr::latex_template())
 }
 \arguments{
-\item{...}{Other parameters to pass to pdf_document2().}
+\item{...}{Parameters to pass to pdf_document2().}
 
-\item{latex_engine}{The default latex engine, which should be pdflatex}
-
-\item{fig_caption}{Use figure captions}
-
-\item{template}{Latex template file (default is ds_pdf.tex).}
+\item{template}{Latex template for use in markdown (see \code{\link{latex_template}}).}
 }
 \value{
 A compiled pdf.

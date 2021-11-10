@@ -27,7 +27,13 @@ Imports:
   rmarkdown,
   sessioninfo,
   tibble,
-  whoami
+  whoami,
+  cli,
+  glue,
+  here,
+  readr,
+  usethis,
+  stringr
 VignetteBuilder: knitr
 Suggests: 
     testthat (>= 3.0.0)
