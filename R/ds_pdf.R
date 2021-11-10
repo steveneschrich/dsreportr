@@ -30,16 +30,7 @@
 #'
 #' @return A compiled pdf.
 #' @export
-ds_pdf <- function(...,
-                    latex_engine = "pdflatex",
-                    fig_caption = TRUE,
-                    template = latex_template()
-) {
-
-
-
-  # This is the only call I actually need, everything else in the
-  # YAML.
+ds_pdf <- function(..., template = dsreportr::latex_template()) {
   bookdown::pdf_document2(template = template, ...)
-
 }
+

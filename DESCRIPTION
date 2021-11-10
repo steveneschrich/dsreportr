@@ -27,9 +27,7 @@ Imports:
   rmarkdown,
   sessioninfo,
   tibble,
-  whoami,
-  xfun,
-  yaml
+  whoami
 VignetteBuilder: knitr
 Suggests: 
     testthat (>= 3.0.0)
