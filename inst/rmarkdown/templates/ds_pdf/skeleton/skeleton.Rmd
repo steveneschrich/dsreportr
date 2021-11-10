@@ -30,7 +30,7 @@ banner_width: 6.5in
 output:
   dsreportr::ds_pdf:
     latex_engine: pdflatex
-    keep_tex: true
+    keep_tex: false
     
 # General settings for the report. Many of these settings are defaulted
 # and not always needed but can be overridden if desired.
