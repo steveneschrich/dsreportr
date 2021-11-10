@@ -1,0 +1,76 @@
+---
+# The report title block contains all of this information, although
+# if they are missing they are excluded. Note that running_title is not
+# included, but is part of the header of the rest of the report.
+title: "Title of the Report"
+running_title: "A Running Title"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+project: "A Really Complicated Analysis Project"
+srpt_number: 007
+version: 1.0
+investigators:
+  - name: "Minnie Mouse"
+  - name: "Mickey Mouse"
+project_team:
+analysis_contact:
+report_author: "Dr. Smith"
+analysis_team:
+organization: "Data Science Core, Some Institution"
+
+# A banner will run across the top page. For template packages,
+# you can use dsreportr::banner("dsreportr::ds_pdf") or whatever
+# template string is used in the output block. Or name your own
+# image file. Note the width option allows the image to be stretched,
+# which may not be your intent.
+banner: "`r dsreportr::banner()`"
+banner_width: 6.5in
+
+# Output specific options. Note that this skeleton only really applies
+# to a specific template.
+output:
+  dsreportr::ds_pdf:
+    latex_engine: pdflatex
+    keep_tex: true
+    
+# General settings for the report. Many of these settings are defaulted
+# and not always needed but can be overridden if desired.
+toc: yes
+toc_depth: 2
+number_sections: true
+fontsize: 11pt
+geometry:
+  - margin=1in
+  - top=1in
+  - bottom=1in
+  - footskip=0.5in
+  
+# This is a brief statement of the report purpose, etc that would be
+# available at the outset.
+abstract: 
+
+# These settings are extras, but I'm not sure they are valid.
+colorlinks: false
+urlcolor: "blue"
+linkcolor: "cyan"
+citecolor: "gray"
+toccolor: "cyan"
+
+---
+
+# R Markdown Report
+This is the actual report. It can include figures, tables and other data
+suitable for a data science report.
+
+
+<!---
+ATTENTION: The below text should remain at the bottom of your markdown
+as it provides tables about the runtime environment. You should leave
+everything from the start of this paragraph down at the end of the 
+document.
+--->
+\newpage
+# Session Information
+The information in this section is included in the report to facilitate reproducible research. The specific environment under which the code was run is detailed. 
+```{r session-information, echo=FALSE, results='asis'}
+dsreportr::print_session_information()
+```

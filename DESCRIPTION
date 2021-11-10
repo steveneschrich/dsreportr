@@ -1,0 +1,36 @@
+Package: dsreportr
+Title: Data Science Report Templates
+Version: 0.0.0.9000
+Authors@R: 
+    person("Steven", "Eschrich", , "Steven.Eschrich@moffitt.org", 
+        role = c("aut", "cre"),
+          comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: A system for generating RMarkdown-based
+  reports for data science applications. In particular, dsreportr provides
+  necessary infrastructure for other packages to quickly implement a new, 
+  derived templates without adding extra plumbing code. Or, simply override
+  the YAML fields from the skeleton for one-off reports. dsreportr includes a
+  markdown template for MS-Word, PDF and other output.
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+Imports:
+  magrittr,
+  rlang,
+  bookdown,
+  dplyr,
+  flextable,
+  git2r,
+  kableExtra,
+  knitr,
+  rmarkdown,
+  sessioninfo,
+  tibble,
+  whoami,
+  xfun,
+  yaml
+VignetteBuilder: knitr
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
