@@ -6,7 +6,6 @@
 \usage{
 create_yml_description(
   tmpl,
-  tmpl_dir,
   name = identify_template(tmpl)$template,
   description = glue::glue("A template for {name} based on dsreportr."),
   create_dir = FALSE
@@ -14,8 +13,6 @@ create_yml_description(
 }
 \arguments{
 \item{tmpl}{A template of the form \code{pkg::template_pdf}.}
-
-\item{tmpl_dir}{Template directory}
 
 \item{name}{Name of the template (defaults to the tmpl name)}
 
@@ -38,5 +35,5 @@ This is an internal package function, not for global consumption.
 }
 \examples{
 \dontrun{
-create_yml_description("bbireportr::bbi_pdf", "some/dir/structure")}
+create_yml_description("bbireportr::bbi_pdf")}
 }

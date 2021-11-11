@@ -19,20 +19,20 @@ library(dsreportr)
 ```
 
 # Overview
-This package contains various tools for making data science-related rmarkdown reports work. Think some of the repetitive things that we typically need (or want, but don't have time to add). This is not a library for the highly polished monthly report, but rather for the many and varied analysis that a working data scientist may need to whip up on a moment's notice. That, at least, is the inspiration for this package.
+This package contains various tools for making data science-related rmarkdown reports work. Think of some of the repetitive things that we typically need (or want, but don't have time to add). This is not a library for the highly polished monthly report, but rather for the many and varied analyses that a working data scientist may need to whip up on a moment's notice. That, at least, is the inspiration for this package.
 
 One of the helpful things for doing this is to include an appendix that has some key pieces of information, not least of which is the working directory so you can re-find the report when needed. That is the basis for the session information.
 
 # How to Use It
 
-The R environment from `base::sessionInfo` or `sessioninfo::session_info` are pretty nice for getting a snapshot of the current state of R, including R version, OS, date, and library package versions. There are a few more things that I've found useful, such as git-related settings, and username. Above all else, the most useful parameter is the *project directory*. Organizing across many projects, it is inevitable that the question of "Remember that project..." comes up. "Send me the report" is now my answer, since the directory will be at the bottom of the report.
+The R environment from `base::sessionInfo` or `sessioninfo::session_info` is pretty nice for getting a snapshot of the current state of R, including R version, OS, date, and library package versions. There are a few more things that I've found useful, such as git-related settings, and username. Above all else, the most useful parameter is the *project directory*. Organizing across many projects, it is inevitable that the question of "Remember that project..." comes up. "Send me the report" is now my answer, since the directory will be at the bottom of the report.
 
 ## Basic Usage
 The R session can be included in a rmarkdown report through the R function
 ```
 print_session_information()
 ```
-This is included at the end of the skeleton template (dsreportr::template), so
+This is included at the end of the skeleton template (dsreportr::ds_pdf template), so
 we get this by default.
 
 Of course, the purpose is to make things easy so in the spirit of the usethis package, you can also do
@@ -41,6 +41,9 @@ use_session_information("file.Rmd")
 ```
 to append the necessary information at the bottom of the markdown.
 
-Likewise, you can 
+## Limitations
+Note that at present, the session information only supports pdf templates via the
+`knitr::kable` formatting. There is support for `flextable::flextable` formatting
+but it has not been populated throughout the code (yet).
 
 

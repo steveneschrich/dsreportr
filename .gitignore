@@ -3,3 +3,5 @@ inst/doc
 .DS_Store
 .Rhistory
 dsreportr.Rproj
+/doc/
+/Meta/

@@ -19,8 +19,12 @@ Populate the necessary template files in the package
 that is at the current working directory.
 }
 \details{
-There are a few files/directories needed to make RStudio recognize a package as
-templates. This does the work. See \code{\link{create_package}} for details.
+For RStudio to recognize a package as suitable for a
+markdown template, there are several files/directories that are needed. This function will create the
+package and then populate the necessary information based on \code{tmpl}. Note
+that there remains some work to do with the package, not everything in life is
+free! Some things to consider tweaking are the DESCRIPTION (this is not modified)
+and the actual template.yaml file used in RStudio.
 }
 \examples{
 \dontrun{create_template_in_package("bbireportr::bbi_pdf")}

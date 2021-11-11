@@ -26,5 +26,7 @@ If there are multiple banner.png/banner.jpg etc files, then
 the first such file is returned.
 }
 \examples{
+\dontrun{
 banner("ds_reportr::ds_pdf")
+}
 }

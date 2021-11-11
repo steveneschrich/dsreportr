@@ -15,7 +15,9 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' banner("ds_reportr::ds_pdf")
+#' }
 banner <- function(tmpl="dsreportr::ds_pdf", img_regex="*banner.png|*banner.jpg") {
   tmpl <- identify_template(tmpl)
   resource_dir <- system.file(file.path("rmarkdown","templates",tmpl$template),
@@ -25,6 +27,7 @@ banner <- function(tmpl="dsreportr::ds_pdf", img_regex="*banner.png|*banner.jpg"
                         ignore.case=TRUE,
                         full.names=TRUE
               )
+  checkmate::assert_vector(img_files, min.len=1)
 
   img_files[1]
 

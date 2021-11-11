@@ -4,7 +4,7 @@ Version: 0.0.0.9000
 Authors@R: 
     person("Steven", "Eschrich", , "Steven.Eschrich@moffitt.org", 
         role = c("aut", "cre"),
-          comment = c(ORCID = "YOUR-ORCID-ID"))
+          comment = c(ORCID = "0000-0002-9833-2788"))
 Description: A system for generating RMarkdown-based
   reports for data science applications. In particular, dsreportr provides
   necessary infrastructure for other packages to quickly implement a new, 
@@ -33,7 +33,8 @@ Imports:
   here,
   readr,
   usethis,
-  stringr
+  stringr,
+  checkmate
 VignetteBuilder: knitr
 Suggests: 
     testthat (>= 3.0.0)
