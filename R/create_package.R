@@ -101,8 +101,8 @@ create_skeleton_markdown <- function(tmpl, banner = FALSE) {
 
   # Modify the skeleton file in a few key places.
   md <- readr::read_file(skeleton_file) %>%
-          stringr::str_replace("dsreportr::ds_pdf", tmpl) %>%
-          stringr::str_replace("dsreportr::banner()",
+          stringr::str_replace_all("dsreportr::ds_pdf", tmpl) %>%
+          stringr::str_replace_all("dsreportr::banner()",
               glue::glue("dsreportr::banner({ifelse(banner, tmpl, '')})"))
 
 
