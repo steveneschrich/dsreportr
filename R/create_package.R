@@ -161,18 +161,15 @@ create_wrapper_function <- function(tmpl, from) {
 #' to "install" the image file into the appropriate location within
 #' a package.
 #'
-#' @note The image file should end in `*banner.jpg` or `*banner.png`.
 #' @param tmpl A template of the form `pkg::template_pdf`.
 #' @param img A filename of an image to use as a banner.
 #'
 #' @export
 #'
 #' @examples
-#' \dontrun{use_banner("dsreportr::ds1_pdf", "file_banner.png")}
+#' \dontrun{use_banner("dsreportr::ds1_pdf", "image.png")}
 use_banner <- function(tmpl, img) {
   checkmate::assert_file_exists(img, access="r")
-  checkmate::assert_string(img, pattern = "banner\\.[png|jpg]",
-                           ignore.case=TRUE)
 
   # Copy img to package directory
   img_dir <- file.path(find_template_dir(tmpl), "resources")

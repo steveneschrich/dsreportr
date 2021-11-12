@@ -32,16 +32,16 @@ This will create the necessary files, etc to make a new template. Note that the 
 
 What if you want a banner image with the template? No problem, you can run:
 ```
-dsreportr::create_template_in_package("bbireportr::bbi_pdf", "imagebanner.jpg")
+dsreportr::create_template_in_package("bbireportr::bbi_pdf", "image.jpg")
 ```
 
 If you think about adding a banner after the fact (after creating the template), you 
 can just use:
 
 ```
-dsreportr::use_banner("bbireportr::bbi_pdf", "imagebanner.jpg")
+dsreportr::use_banner("bbireportr::bbi_pdf", "image.jpg")
 ```
-Note: at present only one image is supported and the image needs to end in banner.jpg or banner.png. 
+ 
 
 ## Manual Steps
 
@@ -74,9 +74,7 @@ Next, we create the following directory: `inst/rmarkdown/templates/bbi_pdf`.
 This directory will hold the banner image (if you want one), the skeleton
 markdown and the description of the template.
 
-- The banner image is easy - put a jpg/png file in the `inst/rmarkdown/templates/bbi_pdf/resources` directory. Make sure that it is
-called `SOMETHINGbanner.jpg` or `SOMETHINGbanner.png`. Case doesn't matter
-but it needs to end in `banner.jpg` or `banner.png`. Of course, you also want to make sure it is appropriately sized (full width looks nice, but other options are reasonable). 
+- The banner image is easy - put a jpg/png file in the `inst/rmarkdown/templates/bbi_pdf/resources` directory. You want to make sure it is appropriately sized (full width looks nice, but other options are reasonable). 
 
 - A description of the template should be in `inst/rmarkdown/templates/bbi_pdf/template.yaml`. This is a simple file with only a couple of lines:
 ```

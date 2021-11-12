@@ -28,13 +28,12 @@ The easiest way to create a new template is not to, but rather just modify the Y
 dsreportr::create_template_in_package("bbireportr::bbi_pdf", "banner.png")
 ```
 
-This will create the necessary files, etc to make a new template. You can include the banner image as part of this process, just make sure it's named SOMETHINGbanner.png or banner.jpg. Note that the function provides copious output during the creation.
+This will create the necessary files, etc to make a new template. You can include the banner image as part of this process. Note that the function provides copious output during the creation.
 
 What if you want a banner image after the fact? No problem, you can run:
 ```
-dsreportr::use_banner("bbireportr::bbi_pdf", "imagebanner.jpg")
+dsreportr::use_banner("bbireportr::bbi_pdf", "image.jpg")
 ```
-Note: at present only one image is supported and the image needs to end in banner.jpg or banner.png. 
 
 ## R Environment
 The R environment from `base::sessionInfo` or `sessioninfo::session_info` are pretty nice for getting a snapshot of the current state of R, including R version, OS, date, and library package versions. There are a few more things that I've found useful, such as git-related settings, and username. Above all else, the most useful parameter is the *project directory*. Organizing across many projects, it is inevitable that the question of "Remember that project..." comes up. "Send me the report" is now my answer, since the directory will be at the bottom of the report.

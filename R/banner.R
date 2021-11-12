@@ -4,13 +4,12 @@
 #' first page of the report. This function returns the path to that
 #' banner.
 #'
-#' @note If there are multiple banner.png/banner.jpg etc files, then
+#' @note If there are multiple .png/.jpg etc files, then
 #' the first such file is returned.
 #'
 #' @param tmpl A string representing a rmarkdown template, with the package
 #' prefix. For example, "dsreportr::ds_pdf".
-#' @param img_regex A string representing a regular expression that identifies
-#'   the expected image type.
+#' @param img_extensions A list of image extensions to look for (default is c("png","jpg")).
 #' @return A path to a banner image.
 #' @export
 #'
@@ -18,8 +17,10 @@
 #' \dontrun{
 #' banner("ds_reportr::ds_pdf")
 #' }
-banner <- function(tmpl="dsreportr::ds_pdf", img_regex="*banner.png|*banner.jpg") {
+banner <- function(tmpl="dsreportr::ds_pdf", img_extensions=c("png","jpg"))
+                   paste0(tmpl, "\\.(png|jpg)") {
   tmpl <- identify_template(tmpl)
+  img_regex <- glue::glue("{tmpl$template}\\.({paste(img_extensions, collapse='|')})")
   resource_dir <- system.file(file.path("rmarkdown","templates",tmpl$template),
                    "resources",
                    package = tmpl$package)
