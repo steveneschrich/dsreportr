@@ -16,3 +16,4 @@ identify_template<-function(s) {
 pkg::template, e.g. dsreportr::ds_pdf." = length(chunks)==2)
   list(package=chunks[[1]], template=chunks[[2]])
 }
+

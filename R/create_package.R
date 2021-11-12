@@ -175,8 +175,12 @@ use_banner <- function(tmpl, img) {
   img_dir <- file.path(find_template_dir(tmpl), "resources")
   checkmate::test_directory_exists(img_dir, access="w") ||
     dir.create(img_dir, showWarnings=FALSE)
-  file.copy(img, img_dir)
-  checkmate::test_file_exists(file.path(img_dir, img), access="r")
+  banner_image <- file.path(
+    img_dir,
+    glue::glue("{identify_template(tmpl)$template}.{tools::file_ext(img)}")
+  )
+  file.copy(img, banner_image)
+  checkmate::test_file_exists(banner_image, access="r")
 
   # Fix skeleton file
   skeleton_file <- find_skeleton_file(tmpl)

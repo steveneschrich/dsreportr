@@ -1,3 +1,3 @@
 test_that("banner returns a banner", {
-  expect_true(endsWith(banner(), "ds_banner.jpg"))
+  expect_true(endsWith(banner(), ".jpg"))
 })

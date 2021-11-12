@@ -17,8 +17,7 @@
 #' \dontrun{
 #' banner("ds_reportr::ds_pdf")
 #' }
-banner <- function(tmpl="dsreportr::ds_pdf", img_extensions=c("png","jpg"))
-                   paste0(tmpl, "\\.(png|jpg)") {
+banner <- function(tmpl="dsreportr::ds_pdf", img_extensions=c("png","jpg")) {
   tmpl <- identify_template(tmpl)
   img_regex <- glue::glue("{tmpl$template}\\.({paste(img_extensions, collapse='|')})")
   resource_dir <- system.file(file.path("rmarkdown","templates",tmpl$template),

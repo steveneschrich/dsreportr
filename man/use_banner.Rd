@@ -23,9 +23,6 @@ a template. This function is inspired by the \code{usethis} package,
 to "install" the image file into the appropriate location within
 a package.
 }
-\note{
-The image file should end in \verb{*banner.jpg} or \verb{*banner.png}.
-}
 \examples{
-\dontrun{use_banner("dsreportr::ds1_pdf", "file_banner.png")}
+\dontrun{use_banner("dsreportr::ds1_pdf", "image.png")}
 }
