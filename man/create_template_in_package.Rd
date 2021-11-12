@@ -4,10 +4,12 @@
 \alias{create_template_in_package}
 \title{Create template files in package in cwd}
 \usage{
-create_template_in_package(tmpl, from = "dsreportr::ds_pdf")
+create_template_in_package(tmpl, banner = NULL, from = "dsreportr::ds_pdf")
 }
 \arguments{
 \item{tmpl}{A template of the form \code{pkg::template_pdf}.}
+
+\item{banner}{A image file to use as banner (see \code{\link{use_banner}}).}
 
 \item{from}{Source package, defaults to \code{dsreportr::ds_pdf}.}
 }

@@ -4,12 +4,10 @@
 \alias{create_skeleton_markdown}
 \title{Create skeleton markdown template file}
 \usage{
-create_skeleton_markdown(tmpl, banner = FALSE)
+create_skeleton_markdown(tmpl)
 }
 \arguments{
 \item{tmpl}{A template of the form \code{pkg::template_pdf}.}
-
-\item{banner}{Should banner be included (default FALSE)}
 }
 \value{
 Nothing, but skeleton created.

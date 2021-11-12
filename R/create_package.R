@@ -13,14 +13,17 @@
 #'
 #'
 #' @param tmpl A template of the form `pkg::template_pdf`.
+#' @param banner A image file to use as banner (see \code{\link{use_banner}}).
 #' @param from Source package, defaults to `dsreportr::ds_pdf`.
-#'
 #' @return Nothing, but the files will be populated in the existing package.
 #' @export
 #'
 #' @examples
 #' \dontrun{create_template_in_package("bbireportr::bbi_pdf")}
-create_template_in_package<-function(tmpl, from="dsreportr::ds_pdf") {
+create_template_in_package<-function(tmpl,
+                                     banner = NULL,
+                                     from = "dsreportr::ds_pdf"
+                                     ) {
 
   src <- identify_template(from)
   tgt <- identify_template(tmpl)
@@ -39,7 +42,10 @@ create_template_in_package<-function(tmpl, from="dsreportr::ds_pdf") {
   cli::cli_alert_success("Created template directory {tmpl_dir}.")
 
   cli::cli_alert_info("Creating skeleton markdown.")
-  create_skeleton_markdown(tmpl, banner=TRUE)
+  create_skeleton_markdown(tmpl)
+
+  if (!is.null(banner))
+    use_banner(tmpl, banner)
 
   cli::cli_alert_info("Creating yml description.")
   create_yml_description(tmpl)
@@ -84,12 +90,11 @@ create_yml_description <- function(tmpl,
 #' modify a few variables for it's use in the new template.
 #'
 #' @param tmpl A template of the form `pkg::template_pdf`.
-#' @param banner Should banner be included (default FALSE)
 #'
 #' @return Nothing, but skeleton created.
 #' @note This is an internal package function, not for global consumption.
 #' @importFrom rlang .data
-create_skeleton_markdown <- function(tmpl, banner = FALSE) {
+create_skeleton_markdown <- function(tmpl) {
   skeleton_dir <- find_skeleton_dir(tmpl)
   skeleton_file <- find_skeleton_file(tmpl)
 
@@ -101,10 +106,7 @@ create_skeleton_markdown <- function(tmpl, banner = FALSE) {
 
   # Modify the skeleton file in a few key places.
   md <- readr::read_file(skeleton_file) %>%
-          stringr::str_replace_all("dsreportr::ds_pdf", tmpl) %>%
-          stringr::str_replace_all("dsreportr::banner()",
-              glue::glue("dsreportr::banner({ifelse(banner, tmpl, '')})"))
-
+          stringr::str_replace_all("dsreportr::ds_pdf", tmpl)
 
   readr::write_file(md, file = skeleton_file)
 
@@ -182,13 +184,14 @@ use_banner <- function(tmpl, img) {
   # Fix skeleton file
   skeleton_file <- find_skeleton_file(tmpl)
   md <- readr::read_file(skeleton_file) %>%
-            stringr::str_replace(
-              "dsreportr::banner()",
-              glue::glue("dsreportr::banner({tmpl})")
+            stringr::str_replace_all(
+              "banner: \"\`r dsreportr::banner\\(\\)\`\"",
+              glue::glue("banner: \"\`r dsreportr::banner\\('{tmpl}'\\)\`\"")
             ) %>%
             readr::write_file(file = skeleton_file)
 
   cli::cli_alert_success("Patched {skeleton_file} to use {basename(img)}.")
+
 
 }
 

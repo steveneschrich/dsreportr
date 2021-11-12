@@ -25,12 +25,12 @@ vignette on the topic.
 
 The easiest way to create a new template is not to, but rather just modify the YAML header from the skeleton markdown in a new file. That's great for a one-off. If that doesn't work, create a new package (based on devtools, at least in rstudio). Then, from the project directory:
 ```
-dsreportr::create_template_in_package("bbireportr::bbi_pdf")
+dsreportr::create_template_in_package("bbireportr::bbi_pdf", "banner.png")
 ```
 
-This will create the necessary files, etc to make a new template. Note that the function provides copious output during the creation.
+This will create the necessary files, etc to make a new template. You can include the banner image as part of this process, just make sure it's named SOMETHINGbanner.png or banner.jpg. Note that the function provides copious output during the creation.
 
-What if you want a banner image? No problem, you can run:
+What if you want a banner image after the fact? No problem, you can run:
 ```
 dsreportr::use_banner("bbireportr::bbi_pdf", "imagebanner.jpg")
 ```

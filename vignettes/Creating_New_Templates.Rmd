@@ -30,7 +30,14 @@ dsreportr::create_template_in_package("bbireportr::bbi_pdf")
 
 This will create the necessary files, etc to make a new template. Note that the function provides copious output during the creation.
 
-What if you want a banner image? No problem, you can run:
+What if you want a banner image with the template? No problem, you can run:
+```
+dsreportr::create_template_in_package("bbireportr::bbi_pdf", "imagebanner.jpg")
+```
+
+If you think about adding a banner after the fact (after creating the template), you 
+can just use:
+
 ```
 dsreportr::use_banner("bbireportr::bbi_pdf", "imagebanner.jpg")
 ```
