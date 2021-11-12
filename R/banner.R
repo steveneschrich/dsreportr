@@ -8,8 +8,8 @@
 #' the first such file is returned.
 #'
 #' @param tmpl A string representing a rmarkdown template, with the package
-#' prefix. For example, "dsreportr::ds_pdf".
-#' @param img_extensions A list of image extensions to look for (default is c("png","jpg")).
+#' prefix. For example, `dsreportr::ds_pdf`.
+#' @param img_extensions A list of image extensions to look for (default is `c("png","jpg")`).
 #' @return A path to a banner image.
 #' @export
 #'

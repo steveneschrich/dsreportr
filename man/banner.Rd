@@ -8,9 +8,9 @@ banner(tmpl = "dsreportr::ds_pdf", img_extensions = c("png", "jpg"))
 }
 \arguments{
 \item{tmpl}{A string representing a rmarkdown template, with the package
-prefix. For example, "dsreportr::ds_pdf".}
+prefix. For example, \code{dsreportr::ds_pdf}.}
 
-\item{img_extensions}{A list of image extensions to look for (default is c("png","jpg")).}
+\item{img_extensions}{A list of image extensions to look for (default is \code{c("png","jpg")}).}
 }
 \value{
 A path to a banner image.

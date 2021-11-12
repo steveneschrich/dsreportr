@@ -1,5 +1,5 @@
 ---
-title: "Session Information"
+title: "SessionInformation"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{SessionInformation}

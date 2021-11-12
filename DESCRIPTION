@@ -11,7 +11,7 @@ Description: A system for generating RMarkdown-based
   derived templates without adding extra plumbing code. Or, simply override
   the YAML fields from the skeleton for one-off reports. dsreportr includes a
   markdown template for MS-Word, PDF and other output.
-License: GPL (>= 3)
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2

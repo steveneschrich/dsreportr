@@ -1,8 +1,8 @@
 ---
-title: "Creating_New_Templates"
+title: "CreatingNewTemplates"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Creating_New_Template}
+  %\VignetteIndexEntry{CreatingNewTemplates}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
