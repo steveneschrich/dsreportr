@@ -170,7 +170,7 @@ create_wrapper_function <- function(tmpl, from) {
 #' \dontrun{use_banner("dsreportr::ds1_pdf", "image.png")}
 use_banner <- function(tmpl, img) {
   checkmate::assert_file_exists(img, access="r")
-
+  checkmate::assert_string(img, pattern = "\\.(png|jpg)")
   # Copy img to package directory
   img_dir <- file.path(find_template_dir(tmpl), "resources")
   checkmate::test_directory_exists(img_dir, access="w") ||
