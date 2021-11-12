@@ -1,5 +1,7 @@
 # dsreportr
 
+https://steveneschrich.github.io/dsreportr/
+
 This package contains R code and template files necessary for creating
 new templates easily for rmarkdown projects. What does that mean? There
 are some plumbing utilities implemented here so that a new template package
