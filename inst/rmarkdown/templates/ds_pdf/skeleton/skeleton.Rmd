@@ -15,7 +15,7 @@ project_team:
 analysis_contact:
 report_author: "Dr. Smith"
 analysis_team:
-organization: "Data Science Core, Some Institution"
+organization: "Data Science Core"
 
 # A banner will run across the top page. For template packages,
 # you can use dsreportr::banner("dsreportr::ds_pdf") or whatever

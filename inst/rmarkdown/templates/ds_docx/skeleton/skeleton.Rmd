@@ -1,0 +1,36 @@
+---
+# Template for word documents using officedown. Note this does not work well at the
+# moment. I would recommend using officer directly.
+title: "Untitled"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+author: ""
+# Output options. Note the unusual syntax for finding the reference docx
+# https://stackoverflow.com/questions/40801633/use-r-code-or-windows-user-variable-userprofile-in-yaml
+output: 
+  officedown::rdocx_document:
+    reference_docx: !eval dsreportr::docx_template('dsreportr::ds_docx')
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

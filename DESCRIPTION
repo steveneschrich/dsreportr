@@ -34,7 +34,9 @@ Imports:
   readr,
   usethis,
   stringr,
-  checkmate
+  checkmate,
+  officer,
+  officedown
 VignetteBuilder: knitr
 Suggests: 
     testthat (>= 3.0.0)

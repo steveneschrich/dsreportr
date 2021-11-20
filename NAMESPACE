@@ -3,6 +3,8 @@
 export(banner)
 export(cat_session_markdown)
 export(create_template_in_package)
+export(docx)
+export(docx_template)
 export(ds_pdf)
 export(get_environment_information)
 export(get_package_information)
