@@ -20,8 +20,7 @@
 banner <- function(tmpl="dsreportr::ds_pdf", img_extensions=c("png","jpg")) {
   tmpl <- identify_template(tmpl)
   img_regex <- glue::glue("{tmpl$template}\\.({paste(img_extensions, collapse='|')})")
-  resource_dir <- system.file(file.path("rmarkdown","templates",tmpl$template),
-                   "resources",
+  resource_dir <- system.file("rmarkdown", "templates", tmpl$template, "resources",
                    package = tmpl$package)
   img_files<-list.files(path = resource_dir, pattern = img_regex,
                         ignore.case=TRUE,
