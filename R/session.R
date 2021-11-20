@@ -124,7 +124,9 @@ get_package_information<-function() {
       unloaded = is.na(.data$loadedversion),
       `*`=ifelse(.data$attached, "*",""),
       `lib` = encode_library(.data$library),
-      version = ifelse(.data$unloaded, .data$ondiskversion, .data$loadedversion)
+      version = ifelse(.data$unloaded, .data$ondiskversion, .data$loadedversion),
+      source = stringr::str_wrap(.data$source, width=30)
+
     )
 }
 
