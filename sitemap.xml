@@ -46,6 +46,9 @@
     <loc>https://steveneschrich.github.io/dsreportr/reference/latex_template.html</loc>
   </url>
   <url>
+    <loc>https://steveneschrich.github.io/dsreportr/reference/list_templates.html</loc>
+  </url>
+  <url>
     <loc>https://steveneschrich.github.io/dsreportr/reference/new_markdown.html</loc>
   </url>
   <url>
@@ -62,6 +65,9 @@
   </url>
   <url>
     <loc>https://steveneschrich.github.io/dsreportr/reference/style_package_information_as_kable.html</loc>
+  </url>
+  <url>
+    <loc>https://steveneschrich.github.io/dsreportr/reference/template_info.html</loc>
   </url>
   <url>
     <loc>https://steveneschrich.github.io/dsreportr/reference/use_banner.html</loc>

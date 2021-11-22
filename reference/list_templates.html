@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create template files in package in cwd — create_template_in_package • dsreportr</title>
+<title>List available templates within a package. — list_templates • dsreportr</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,9 @@
 
 
 
-<meta property="og:title" content="Create template files in package in cwd — create_template_in_package" />
-<meta property="og:description" content="Populate the necessary template files in the package
-that is at the current working directory." />
+<meta property="og:title" content="List available templates within a package. — list_templates" />
+<meta property="og:description" content="Templates are defined using a particular structure (for RStudio). This
+function lists the available templates from a named package." />
 
 
 
@@ -119,54 +119,59 @@ that is at the current working directory." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create template files in package in cwd</h1>
+    <h1>List available templates within a package.</h1>
     
-    <div class="hidden name"><code>create_template_in_package.Rd</code></div>
+    <div class="hidden name"><code>list_templates.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Populate the necessary template files in the package
-that is at the current working directory.</p>
+    <p>Templates are defined using a particular structure (for RStudio). This
+function lists the available templates from a named package.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>create_template_in_package</span><span class='op'>(</span><span class='va'>tmpl</span>, banner <span class='op'>=</span> <span class='cn'>NULL</span>, from <span class='op'>=</span> <span class='st'>"dsreportr::ds_pdf"</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>list_templates</span><span class='op'>(</span><span class='va'>pkg</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>tmpl</th>
-      <td><p>A template of the form <code>pkg::template_pdf</code>.</p></td>
-    </tr>
-    <tr>
-      <th>banner</th>
-      <td><p>A image file to use as banner (see <code><a href='use_banner.html'>use_banner</a></code>).</p></td>
-    </tr>
-    <tr>
-      <th>from</th>
-      <td><p>Source package, defaults to <code><a href='ds_pdf.html'>dsreportr::ds_pdf</a></code>.</p></td>
+      <th>pkg</th>
+      <td><p>A package to enumerate templates within.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Nothing, but the files will be populated in the existing package.</p>
+    <p>A simple <code><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></code> representing the available templates.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>For RStudio to recognize a package as suitable for a
-markdown template, there are several files/directories that are needed. This function will create the
-package and then populate the necessary information based on <code>tmpl</code>. Note
-that there remains some work to do with the package, not everything in life is
-free! Some things to consider tweaking are the DESCRIPTION (this is not modified)
-and the actual template.yaml file used in RStudio.</p>
+    <p>Templates are defined by a couple of key files in particular locations within
+a package. One notable file is the <code>template.yaml</code> file which provides a name and
+description of the template.</p>
+<p>This function looks in the package and reports on all templates that have a <code>template.yaml</code>
+file in the <code>rmarkdown/templates</code> directory. It reports on the template name, pretty name
+and description.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>There are functions <code><a href='https://usethis.r-lib.org/reference/use_rmarkdown_template.html'>use_rmarkdown_template</a></code> and
-<code><a href='https://usethis.r-lib.org/reference/use_template.html'>use_template</a></code> that should be
-used as the implementation here.</p>
+    <p>This function is vectorized, so pkg can be a vector of packages.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='fu'>create_template_in_package</span><span class='op'>(</span><span class='st'>"bbireportr::bbi_pdf"</span><span class='op'>)</span></span>
+    <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'><span class='fu'>list_template</span><span class='op'>(</span><span class='st'>"dsreportr"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='co'>## template   name                              description</span></span>
+<span class='r-in'><span class='co'>## ---------  --------------------------------  ------------------------------------</span></span>
+<span class='r-in'><span class='co'>## ds_docx    Data Science DOCX Report Output   A Generic Data Science DOCX report.</span></span>
+<span class='r-in'><span class='co'>## ds_pdf     Data Science PDF Report Output    A Generic Data Science PDF report.</span></span>
+<span class='r-in'></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>list_template</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"dsreportr"</span>,<span class='st'>"qsctemplates"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='co'>## template   name                              description</span></span>
+<span class='r-in'><span class='co'>## ---------  --------------------------------  -------------------------------------------------</span></span>
+<span class='r-in'><span class='co'>## ds_docx    Data Science DOCX Report Output   A Generic Data Science DOCX report.</span></span>
+<span class='r-in'><span class='co'>## ds_pdf     Data Science PDF Report Output    A Generic Data Science PDF report.</span></span>
+<span class='r-in'><span class='co'>## qsc_pdf    QSC PDF Template                  A template for the U54 QSC based on dsreportr.</span></span>
+<span class='r-in'><span class='co'>## u54_pdf    U54 PDF Report Template           A template for U54 reporting (not QSC specific).</span></span>
+<span class='r-in'><span class='op'>}</span></span>
 </pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
