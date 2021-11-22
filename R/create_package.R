@@ -11,6 +11,9 @@
 #' free! Some things to consider tweaking are the DESCRIPTION (this is not modified)
 #' and the actual template.yaml file used in RStudio.
 #'
+#' @note There are functions \code{\link[usethis]{use_rmarkdown_template}} and
+#' \code{\link[usethis]{use_template}} that should be
+#' used as the implementation here.
 #'
 #' @param tmpl A template of the form `pkg::template_pdf`.
 #' @param banner A image file to use as banner (see \code{\link{use_banner}}).

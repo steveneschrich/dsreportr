@@ -18,7 +18,7 @@
 #' @return The \code{\link[tibble]{tibble}} representing environmental variables.
 #' @export
 #'
-#' @importFrom magrittr %>%
+#' @importFrom dplyr %>%
 #' @examples
 #' get_environment_information()
 #'
@@ -64,7 +64,7 @@ get_environment_information<-function() {
 #' @return A \code{\link[knitr]{kable}} styled for output.
 #' @export
 #'
-#' @importFrom magrittr %>%
+#' @importFrom dplyr %>%
 #'
 #' @examples
 #'
@@ -109,7 +109,7 @@ style_environment_information_as_flextable<-function(tbl) {
 #' @return A tibble representing package information.
 #'
 #'
-#' @importFrom magrittr %>%
+#' @importFrom dplyr %>%
 #' @importFrom rlang .data
 #'
 #' @export
@@ -160,7 +160,7 @@ encode_library<-function(l) {
 #' @return Kable-formatted package information.
 #' @export
 #'
-#' @importFrom magrittr %>%
+#' @importFrom dplyr %>%
 #' @importFrom rlang .data
 #'
 #' @examples
@@ -194,7 +194,7 @@ style_package_information_as_kable<-function(packages) {
 #' @return A \code{\link[flextable]{flextable}} formatted object.
 #' @export
 #'
-#' @importFrom magrittr %>%
+#' @importFrom dplyr %>%
 #' @importFrom rlang .data
 #' @examples
 #' style_package_information_as_flextable(get_package_information())

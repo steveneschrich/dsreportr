@@ -28,6 +28,11 @@ that there remains some work to do with the package, not everything in life is
 free! Some things to consider tweaking are the DESCRIPTION (this is not modified)
 and the actual template.yaml file used in RStudio.
 }
+\note{
+There are functions \code{\link[usethis]{use_rmarkdown_template}} and
+\code{\link[usethis]{use_template}} that should be
+used as the implementation here.
+}
 \examples{
 \dontrun{create_template_in_package("bbireportr::bbi_pdf")}
 }
