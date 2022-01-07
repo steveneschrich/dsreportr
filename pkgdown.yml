@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   CreatingNewTemplates: CreatingNewTemplates.html
   SessionInformation: SessionInformation.html
-last_built: 2022-01-07T14:10Z
+last_built: 2022-01-07T21:24Z
 urls:
   reference: https://steveneschrich.github.io/dsreportr/reference
   article: https://steveneschrich.github.io/dsreportr/articles
