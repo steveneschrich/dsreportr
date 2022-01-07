@@ -20,7 +20,6 @@ Imports:
   bookdown,
   dplyr,
   flextable,
-  git2r,
   kableExtra,
   knitr,
   rmarkdown,
@@ -31,7 +30,6 @@ Imports:
   glue,
   here,
   readr,
-  usethis,
   stringr,
   checkmate,
   officer,
@@ -41,6 +39,7 @@ Imports:
   tidyr
 VignetteBuilder: knitr
 Suggests: 
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    git2r
 Config/testthat/edition: 3
 URL: https://steveneschrich.github.io/dsreportr

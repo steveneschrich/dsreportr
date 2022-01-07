@@ -82,7 +82,7 @@ create_yml_description <- function(tmpl,
   yml_file <- file.path(find_template_dir(tmpl), "template.yaml")
   readr::write_file(yml_text, file = yml_file)
 
-  cli::cli_alert_success("Created yml file {yml_file}.")
+  message(sprintf("Created yml file %s.",yml_file))
 
 }
 
@@ -103,9 +103,9 @@ create_skeleton_markdown <- function(tmpl) {
 
   # Create the skeleton markdown, this will crash on error.
   dir.create(skeleton_dir) ||
-    cli::cli_abort("Could not create {skeleton_dir}.")
+    stop(sprintf("Could not create %s.",skeleton_dir))
   new_markdown(name = skeleton_file)
-  cli::cli_alert_success("Created {skeleton_file}.")
+  message(sprintf("Created %s.",skeleton_file))
 
   # Modify the skeleton file in a few key places.
   md <- readr::read_file(skeleton_file) %>%
@@ -113,7 +113,7 @@ create_skeleton_markdown <- function(tmpl) {
 
   readr::write_file(md, file = skeleton_file)
 
-  cli::cli_alert_success("Patched {skeleton_file} with {tmpl} information.")
+  message(sprintf("Patched %s with %s information.", skeleton_file, tmpl))
 
 }
 
@@ -180,7 +180,7 @@ use_banner <- function(tmpl, img) {
     dir.create(img_dir, showWarnings=FALSE)
   banner_image <- file.path(
     img_dir,
-    glue::glue("{identify_template(tmpl)$template}.{tools::file_ext(img)}")
+    sprintf("%s.%s", identify_template(tmpl)$template, tools::file_ext(img))
   )
   file.copy(img, banner_image)
   checkmate::test_file_exists(banner_image, access="r")
@@ -194,7 +194,8 @@ use_banner <- function(tmpl, img) {
             ) %>%
             readr::write_file(file = skeleton_file)
 
-  cli::cli_alert_success("Patched {skeleton_file} to use {basename(img)}.")
+  cli::cli_alert_success(sprintf("Patched %s to use %s.",skeleton_file,
+                                 basename(img)))
 
 
 }

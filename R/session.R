@@ -24,6 +24,16 @@
 #'
 get_environment_information<-function() {
 
+  # Special-case git because git2r is in the Suggests, not required.
+  if (!requireNamespace("git2r", quietly = TRUE)) {
+    git_status <- "git2r package not installed."
+  } else {
+    git_status <- ifelse(git2r::in_repository(),
+                         git2r::remote_url(),
+                         "Git not configured for project."
+    )
+  }
+
   # We define custom information we want to see.
   tibble::tribble(
     ~setting, ~value,
@@ -33,10 +43,7 @@ get_environment_information<-function() {
                    "No Input File Detected.",
                    knitr::current_input()
     ),
-    "git", ifelse(git2r::in_repository(),
-                  git2r::remote_url(),
-                  "Git not configured for project."
-    ),
+    "git", git_status,
     "dir", getwd(),
     "hostname", Sys.info()[["nodename"]]
   ) %>%
