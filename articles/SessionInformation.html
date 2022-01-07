@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,18 +33,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dsreportr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.9001</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
@@ -86,31 +82,31 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://steveneschrich.github.io/dsreportr">dsreportr</a></span><span class="op">)</span></code></pre></div>
-<div id="overview" class="section level1">
-<h1 class="hasAnchor">
-<a href="#overview" class="anchor"></a>Overview</h1>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://steveneschrich.github.io/dsreportr">dsreportr</a></span><span class="op">)</span></code></pre></div>
+<div class="section level1">
+<h1 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+</h1>
 <p>This package contains various tools for making data science-related rmarkdown reports work. Think of some of the repetitive things that we typically need (or want, but don’t have time to add). This is not a library for the highly polished monthly report, but rather for the many and varied analyses that a working data scientist may need to whip up on a moment’s notice. That, at least, is the inspiration for this package.</p>
 <p>One of the helpful things for doing this is to include an appendix that has some key pieces of information, not least of which is the working directory so you can re-find the report when needed. That is the basis for the session information.</p>
 </div>
-<div id="how-to-use-it" class="section level1">
-<h1 class="hasAnchor">
-<a href="#how-to-use-it" class="anchor"></a>How to Use It</h1>
-<p>The R environment from <code>base::sessionInfo</code> or <code><a href="https://r-lib.github.io/sessioninfo/reference/session_info.html">sessioninfo::session_info</a></code> is pretty nice for getting a snapshot of the current state of R, including R version, OS, date, and library package versions. There are a few more things that I’ve found useful, such as git-related settings, and username. Above all else, the most useful parameter is the <em>project directory</em>. Organizing across many projects, it is inevitable that the question of “Remember that project…” comes up. “Send me the report” is now my answer, since the directory will be at the bottom of the report.</p>
-<div id="basic-usage" class="section level2">
-<h2 class="hasAnchor">
-<a href="#basic-usage" class="anchor"></a>Basic Usage</h2>
+<div class="section level1">
+<h1 id="how-to-use-it">How to Use It<a class="anchor" aria-label="anchor" href="#how-to-use-it"></a>
+</h1>
+<p>The R environment from <code>base::sessionInfo</code> or <code><a href="https://r-lib.github.io/sessioninfo/reference/session_info.html" class="external-link">sessioninfo::session_info</a></code> is pretty nice for getting a snapshot of the current state of R, including R version, OS, date, and library package versions. There are a few more things that I’ve found useful, such as git-related settings, and username. Above all else, the most useful parameter is the <em>project directory</em>. Organizing across many projects, it is inevitable that the question of “Remember that project…” comes up. “Send me the report” is now my answer, since the directory will be at the bottom of the report.</p>
+<div class="section level2">
+<h2 id="basic-usage">Basic Usage<a class="anchor" aria-label="anchor" href="#basic-usage"></a>
+</h2>
 <p>The R session can be included in a rmarkdown report through the R function</p>
-<pre><code><a href="../reference/print_session_information.html">print_session_information()</a></code></pre>
+<pre><code><span class="fu"><a href="../reference/print_session_information.html">print_session_information</a></span><span class="op">(</span><span class="op">)</span></code></pre>
 <p>This is included at the end of the skeleton template (dsreportr::ds_pdf template), so we get this by default.</p>
 <p>Of course, the purpose is to make things easy so in the spirit of the usethis package, you can also do</p>
-<pre><code>use_session_information("file.Rmd")</code></pre>
+<pre><code><span class="fu">use_session_information</span><span class="op">(</span><span class="st">"file.Rmd"</span><span class="op">)</span></code></pre>
 <p>to append the necessary information at the bottom of the markdown.</p>
 </div>
-<div id="limitations" class="section level2">
-<h2 class="hasAnchor">
-<a href="#limitations" class="anchor"></a>Limitations</h2>
-<p>Note that at present, the session information only supports pdf templates via the <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">knitr::kable</a></code> formatting. There is support for <code><a href="https://davidgohel.github.io/flextable/reference/flextable.html">flextable::flextable</a></code> formatting but it has not been populated throughout the code (yet).</p>
+<div class="section level2">
+<h2 id="limitations">Limitations<a class="anchor" aria-label="anchor" href="#limitations"></a>
+</h2>
+<p>Note that at present, the session information only supports pdf templates via the <code><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">knitr::kable</a></code> formatting. There is support for <code><a href="https://davidgohel.github.io/flextable/reference/flextable.html" class="external-link">flextable::flextable</a></code> formatting but it has not been populated throughout the code (yet).</p>
 </div>
 </div>
   </div>
@@ -126,11 +122,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Steven Eschrich.</p>
+  <p></p>
+<p>Developed by Steven Eschrich.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -138,6 +136,8 @@
 
   
 
+
+  
 
   </body>
 </html>

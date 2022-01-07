@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,18 +33,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dsreportr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.9001</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
@@ -86,37 +82,37 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://steveneschrich.github.io/dsreportr">dsreportr</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://steveneschrich.github.io/dsreportr">dsreportr</a></span><span class="op">)</span></code></pre></div>
 <p>There are a few tools to make creating derivative packages that incorporate new templates. As an example, let’s consider creating a new “bbireportr” package.</p>
-<div id="usethis-inspired-approach" class="section level2">
-<h2 class="hasAnchor">
-<a href="#usethis-inspired-approach" class="anchor"></a>Usethis inspired approach</h2>
+<div class="section level2">
+<h2 id="usethis-inspired-approach">Usethis inspired approach<a class="anchor" aria-label="anchor" href="#usethis-inspired-approach"></a>
+</h2>
 <p>The easiest way to create a new template is not to, but rather just modify the YAML header from the skeleton markdown in a new file. That’s great for a one-off. If that doesn’t work, create a new package (based on devtools, at least in rstudio). Then, from the project directory:</p>
-<pre><code>dsreportr::create_template_in_package("bbireportr::bbi_pdf")</code></pre>
+<pre><code><span class="fu">dsreportr</span><span class="fu">::</span><span class="fu"><a href="../reference/create_template_in_package.html">create_template_in_package</a></span><span class="op">(</span><span class="st">"bbireportr::bbi_pdf"</span><span class="op">)</span></code></pre>
 <p>This will create the necessary files, etc to make a new template. Note that the function provides copious output during the creation.</p>
 <p>What if you want a banner image with the template? No problem, you can run:</p>
-<pre><code>dsreportr::create_template_in_package("bbireportr::bbi_pdf", "image.jpg")</code></pre>
+<pre><code><span class="fu">dsreportr</span><span class="fu">::</span><span class="fu"><a href="../reference/create_template_in_package.html">create_template_in_package</a></span><span class="op">(</span><span class="st">"bbireportr::bbi_pdf"</span>, <span class="st">"image.jpg"</span><span class="op">)</span></code></pre>
 <p>If you think about adding a banner after the fact (after creating the template), you can just use:</p>
-<pre><code>dsreportr::use_banner("bbireportr::bbi_pdf", "image.jpg")</code></pre>
+<pre><code><span class="fu">dsreportr</span><span class="fu">::</span><span class="fu"><a href="../reference/use_banner.html">use_banner</a></span><span class="op">(</span><span class="st">"bbireportr::bbi_pdf"</span>, <span class="st">"image.jpg"</span><span class="op">)</span></code></pre>
 </div>
-<div id="manual-steps" class="section level2">
-<h2 class="hasAnchor">
-<a href="#manual-steps" class="anchor"></a>Manual Steps</h2>
+<div class="section level2">
+<h2 id="manual-steps">Manual Steps<a class="anchor" aria-label="anchor" href="#manual-steps"></a>
+</h2>
 <p>You can also manually create a template for use. The basic components of the package that are required include the following.</p>
-<div id="bbi_pdf-r" class="section level3">
-<h3 class="hasAnchor">
-<a href="#bbi_pdf-r" class="anchor"></a>bbi_pdf.R</h3>
-<p><code>R/bbi_pdf.R</code> is a wrapper around <code><a href="https://pkgs.rstudio.com/bookdown/reference/html_document2.html">bookdown::pdf_document2()</a></code> that provides a way to insert the latex template. If this isn’t clear, don’t worry since there isn’t much that is needed. Since the template comes from this package (dsreportr), there is no need to do anything except name the function. Here is an example of what it could be:</p>
-<pre><code>bbi_pdf &lt;- dsreportr::ds_pdf</code></pre>
+<div class="section level3">
+<h3 id="bbi_pdf-r">bbi_pdf.R<a class="anchor" aria-label="anchor" href="#bbi_pdf-r"></a>
+</h3>
+<p><code>R/bbi_pdf.R</code> is a wrapper around <code><a href="https://pkgs.rstudio.com/bookdown/reference/html_document2.html" class="external-link">bookdown::pdf_document2()</a></code> that provides a way to insert the latex template. If this isn’t clear, don’t worry since there isn’t much that is needed. Since the template comes from this package (dsreportr), there is no need to do anything except name the function. Here is an example of what it could be:</p>
+<pre><code><span class="va">bbi_pdf</span> <span class="op">&lt;-</span> <span class="fu">dsreportr</span><span class="fu">::</span><span class="va"><a href="../reference/ds_pdf.html">ds_pdf</a></span></code></pre>
 <p>However, if you want to use a roxygen2 template and use rstudio <code>Code-&gt;Insert Roxygen Skeleton</code>, then you would create a bit more:</p>
-<pre><code>bbi_pdf &lt;- function(...) {dsreportr::ds_pdf(...)}</code></pre>
+<pre><code><span class="va">bbi_pdf</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">...</span><span class="op">)</span> <span class="op">{</span><span class="fu">dsreportr</span><span class="fu">::</span><span class="fu"><a href="../reference/ds_pdf.html">ds_pdf</a></span><span class="op">(</span><span class="va">...</span><span class="op">)</span><span class="op">}</span></code></pre>
 <p>That’s it. We can now specify in a YAML markdown report header:</p>
-<pre><code>output:
-  bbireportr::bbi_pdf()</code></pre>
+<pre><code><span class="va">output</span><span class="op">:</span>
+  <span class="fu">bbireportr</span><span class="fu">::</span><span class="fu">bbi_pdf</span><span class="op">(</span><span class="op">)</span></code></pre>
 </div>
-<div id="template" class="section level3">
-<h3 class="hasAnchor">
-<a href="#template" class="anchor"></a>Template</h3>
+<div class="section level3">
+<h3 id="template">Template<a class="anchor" aria-label="anchor" href="#template"></a>
+</h3>
 <p>Next, we create the following directory: <code>inst/rmarkdown/templates/bbi_pdf</code>. This directory will hold the banner image (if you want one), the skeleton markdown and the description of the template.</p>
 <ul>
 <li><p>The banner image is easy - put a jpg/png file in the <code>inst/rmarkdown/templates/bbi_pdf/resources</code> directory. You want to make sure it is appropriately sized (full width looks nice, but other options are reasonable).</p></li>
@@ -129,7 +125,7 @@ create_dir: false</code></pre>
 <ul>
 <li>A skeleton markdown file, providing the necessary components to run the template. Note that this package provides a complete <code>skeleton.Rmd</code> file which can be copied to: <code>inst/rmarkdown/templates/bbi_pdf/skeleton</code>. You don’t have to find the skeleton file, though. You could execute the following:</li>
 </ul>
-<pre><code>dsreportr::new_markdown("inst/rmarkdown/templates/bbi_pdf/skeleton/skeleton.Rmd")</code></pre>
+<pre><code><span class="fu">dsreportr</span><span class="fu">::</span><span class="fu"><a href="../reference/new_markdown.html">new_markdown</a></span><span class="op">(</span><span class="st">"inst/rmarkdown/templates/bbi_pdf/skeleton/skeleton.Rmd"</span><span class="op">)</span></code></pre>
 <p>From this file, you’ll want to change two fields:</p>
 <pre><code>banner: "`` `r
 dsreportr::banner("bbireportr::bbi_pdf")` ``"
@@ -153,11 +149,13 @@ output:
 
 
       <footer><div class="copyright">
-  <p>Developed by Steven Eschrich.</p>
+  <p></p>
+<p>Developed by Steven Eschrich.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -165,6 +163,8 @@ output:
 
   
 
+
+  
 
   </body>
 </html>

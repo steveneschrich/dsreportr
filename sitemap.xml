@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://steveneschrich.github.io/dsreportr/404.html</loc>
+  </url>
+  <url>
+    <loc>https://steveneschrich.github.io/dsreportr/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://steveneschrich.github.io/dsreportr/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://steveneschrich.github.io/dsreportr/articles/CreatingNewTemplates.html</loc>
+  </url>
+  <url>
+    <loc>https://steveneschrich.github.io/dsreportr/articles/SessionInformation.html</loc>
+  </url>
+  <url>
+    <loc>https://steveneschrich.github.io/dsreportr/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://steveneschrich.github.io/dsreportr/authors.html</loc>
+  </url>
+  <url>
     <loc>https://steveneschrich.github.io/dsreportr/index.html</loc>
   </url>
   <url>
@@ -43,6 +64,9 @@
     <loc>https://steveneschrich.github.io/dsreportr/reference/identify_template.html</loc>
   </url>
   <url>
+    <loc>https://steveneschrich.github.io/dsreportr/reference/index.html</loc>
+  </url>
+  <url>
     <loc>https://steveneschrich.github.io/dsreportr/reference/latex_template.html</loc>
   </url>
   <url>
@@ -74,11 +98,5 @@
   </url>
   <url>
     <loc>https://steveneschrich.github.io/dsreportr/reference/use_session_markdown.html</loc>
-  </url>
-  <url>
-    <loc>https://steveneschrich.github.io/dsreportr/articles/CreatingNewTemplates.html</loc>
-  </url>
-  <url>
-    <loc>https://steveneschrich.github.io/dsreportr/articles/SessionInformation.html</loc>
   </url>
 </urlset>

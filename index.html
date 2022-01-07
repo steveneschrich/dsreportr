@@ -24,6 +24,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -36,18 +38,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">dsreportr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.9001</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
@@ -79,40 +75,36 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="dsreportr" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#dsreportr" class="anchor"></a>dsreportr</h1></div>
+<div class="section level1">
+<div class="page-header"><h1 id="dsreportr">dsreportr<a class="anchor" aria-label="anchor" href="#dsreportr"></a>
+</h1></div>
 <p><a href="https://steveneschrich.github.io/dsreportr/" class="uri">https://steveneschrich.github.io/dsreportr/</a></p>
 <p>This package contains R code and template files necessary for creating new templates easily for rmarkdown projects. What does that mean? There are some plumbing utilities implemented here so that a new template package can stick to defining the things that matter.</p>
-<p>Some features of the package:</p>
-<ul>
-<li>A nice set of formatting utilities for printing out the R environment at the end of a markdown document, for reproducible research.</li>
-<li>Some helper functions for finding resources in a specific package structure for templates.</li>
-</ul>
-<div id="install" class="section level2">
-<h2 class="hasAnchor">
-<a href="#install" class="anchor"></a>Install</h2>
+<p>Some features of the package: - A nice set of formatting utilities for printing out the R environment at the end of a markdown document, for reproducible research. - Some helper functions for finding resources in a specific package structure for templates.</p>
+<div class="section level2">
+<h2 id="install">Install<a class="anchor" aria-label="anchor" href="#install"></a>
+</h2>
 <p>To install the package, use</p>
-<pre><code>devtools::install_github("steveneschrich/dsreportr")</code></pre>
+<pre><code><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"steveneschrich/dsreportr"</span><span class="op">)</span></code></pre>
 </div>
-<div id="creating-new-templates" class="section level2">
-<h2 class="hasAnchor">
-<a href="#creating-new-templates" class="anchor"></a>Creating New Templates</h2>
+<div class="section level2">
+<h2 id="creating-new-templates">Creating New Templates<a class="anchor" aria-label="anchor" href="#creating-new-templates"></a>
+</h2>
 <p>There are a few tools to make creating derivative packages that incorporate new templates. As an example, let’s consider creating a new “bbireportr” package. More details on creating new packages can be found in a separate vignette on the topic.</p>
 <p>The easiest way to create a new template is not to, but rather just modify the YAML header from the skeleton markdown in a new file. That’s great for a one-off. If that doesn’t work, create a new package (based on devtools, at least in rstudio). Then, from the project directory:</p>
-<pre><code>dsreportr::create_template_in_package("bbireportr::bbi_pdf", "banner.png")</code></pre>
+<pre><code><span class="fu">dsreportr</span><span class="fu">::</span><span class="fu"><a href="reference/create_template_in_package.html">create_template_in_package</a></span><span class="op">(</span><span class="st">"bbireportr::bbi_pdf"</span>, <span class="st">"banner.png"</span><span class="op">)</span></code></pre>
 <p>This will create the necessary files, etc to make a new template. You can include the banner image as part of this process. Note that the function provides copious output during the creation.</p>
 <p>What if you want a banner image after the fact? No problem, you can run:</p>
-<pre><code>dsreportr::use_banner("bbireportr::bbi_pdf", "image.jpg")</code></pre>
+<pre><code><span class="fu">dsreportr</span><span class="fu">::</span><span class="fu"><a href="reference/use_banner.html">use_banner</a></span><span class="op">(</span><span class="st">"bbireportr::bbi_pdf"</span>, <span class="st">"image.jpg"</span><span class="op">)</span></code></pre>
 </div>
-<div id="r-environment" class="section level2">
-<h2 class="hasAnchor">
-<a href="#r-environment" class="anchor"></a>R Environment</h2>
-<p>The R environment from <code>base::sessionInfo</code> or <code><a href="https://r-lib.github.io/sessioninfo/reference/session_info.html">sessioninfo::session_info</a></code> are pretty nice for getting a snapshot of the current state of R, including R version, OS, date, and library package versions. There are a few more things that I’ve found useful, such as git-related settings, and username. Above all else, the most useful parameter is the <em>project directory</em>. Organizing across many projects, it is inevitable that the question of “Remember that project…” comes up. “Send me the report” is now my answer, since the directory will be at the bottom of the report.</p>
+<div class="section level2">
+<h2 id="r-environment">R Environment<a class="anchor" aria-label="anchor" href="#r-environment"></a>
+</h2>
+<p>The R environment from <code>base::sessionInfo</code> or <code><a href="https://r-lib.github.io/sessioninfo/reference/session_info.html" class="external-link">sessioninfo::session_info</a></code> are pretty nice for getting a snapshot of the current state of R, including R version, OS, date, and library package versions. There are a few more things that I’ve found useful, such as git-related settings, and username. Above all else, the most useful parameter is the <em>project directory</em>. Organizing across many projects, it is inevitable that the question of “Remember that project…” comes up. “Send me the report” is now my answer, since the directory will be at the bottom of the report.</p>
 <p>The R session can be included in a rmarkdown report through the R function</p>
-<pre><code><a href="reference/print_session_information.html">dsreportr::print_session_information()</a></code></pre>
+<pre><code><span class="fu">dsreportr</span><span class="fu">::</span><span class="fu"><a href="reference/print_session_information.html">print_session_information</a></span><span class="op">(</span><span class="op">)</span></code></pre>
 <p>The default template in this package (and derived packages) includes a knitr chunk to do this. So you don’t have to think about it. You can also execute</p>
-<pre><code>dsreportr::use_session_markdown("file.Rmd")</code></pre>
+<pre><code><span class="fu">dsreportr</span><span class="fu">::</span><span class="fu"><a href="reference/use_session_markdown.html">use_session_markdown</a></span><span class="op">(</span><span class="st">"file.Rmd"</span><span class="op">)</span></code></pre>
 <p>to get the necessary markdown appended to the end of the file.</p>
 </div>
 </div>
@@ -120,29 +112,42 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
-<div class="developers">
-<h2>Developers</h2>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li>Steven Eschrich <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-9833-2788" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li><a href="authors.html#citation">Citing dsreportr</a></li>
 </ul>
 </div>
+
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
+<ul class="list-unstyled">
+<li>Steven Eschrich <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-9833-2788" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+</ul>
+</div>
+
+
 
   </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Steven Eschrich.</p>
+  <p></p>
+<p>Developed by Steven Eschrich.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -150,6 +155,8 @@
 
   
 
+
+  
 
   </body>
 </html>
