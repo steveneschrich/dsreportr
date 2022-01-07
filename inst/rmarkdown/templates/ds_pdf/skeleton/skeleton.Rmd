@@ -22,9 +22,15 @@ organization: "Data Science Core"
 # template string is used in the output block. Or name your own
 # image file. Note the width option allows the image to be stretched,
 # which may not be your intent.
-banner: "`r dsreportr::banner()`"
+banner: true
 banner_width: 6.5in
 
+# header-includes is a custom section for including extra latex. Due
+# to filename issues, we define the report banner here, but other
+# includes can be added as well.
+header-includes:
+  - "\\newcommand{\\dsreportrbanner}{`r dsreportr::banner()`}"
+  
 # Output specific options. Note that this skeleton only really applies
 # to a specific template.
 output:

@@ -548,7 +548,9 @@ $endif$
 
 % Set the banner in the title field.
 $if(banner)$
-\title{\includegraphics[width=$if(banner_width)$ $banner_width$ $else$ 6.5in $endif$]{$banner$}}
+\pretitle{\begin{center}
+  \includegraphics[width=$if(banner_width)$ $banner_width$ $else$ 6.5in $endif$]{\dsreportrbanner}}
+\posttitle{\end{center}}
 $endif$
 
 % Author field is the report header table. The titling package provides
