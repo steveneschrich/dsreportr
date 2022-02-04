@@ -16,9 +16,6 @@ A data frame with template information.
 A template is defined in part by a YAML file containing template
 details. This function extracts the contents of the YAML and returns in a tibble.
 }
-\details{
-
-}
 \examples{
 \dontrun{
 template_info("/path/to/pkg/rmarkdown/templates/pkg/template.yaml")

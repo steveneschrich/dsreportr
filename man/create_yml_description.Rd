@@ -28,7 +28,7 @@ A YML description file \code{template.yaml} is needed to have RStudio
 recognize the package as a template. This function performs that task.
 }
 \details{
-See \code{\link{create_package}} for details.
+See \code{\link{create_template_in_package}} for details.
 }
 \note{
 This is an internal package function, not for global consumption.

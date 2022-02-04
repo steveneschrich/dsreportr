@@ -36,7 +36,8 @@ Imports:
   officedown,
   fs,
   purrr,
-  tidyr
+  tidyr,
+  xfun
 VignetteBuilder: knitr
 Suggests: 
     testthat (>= 3.0.0),

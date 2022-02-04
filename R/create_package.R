@@ -60,7 +60,7 @@ create_template_in_package<-function(tmpl,
 #' recognize the package as a template. This function performs that task.
 #'
 #' @details
-#' See \code{\link{create_package}} for details.
+#' See \code{\link{create_template_in_package}} for details.
 #'
 #' @note This is an internal package function, not for global consumption.
 #'

@@ -61,11 +61,67 @@ linkcolor: "cyan"
 citecolor: "gray"
 toccolor: "cyan"
 
+# Since this document can change over time, it is defaulted to output a pdf with the
+# datestamp appended (i.e., _YYYY_MM_DD.pdf). Note the output file is stored in
+# the project/package sub-directory "delivery".
+knit: dsreportr::knit_with_datestamp
+
 ---
 
 # R Markdown Report
 This is the actual report. It can include figures, tables and other data
 suitable for a data science report.
+
+```{r setup, echo=FALSE, warning=FALSE, message=FALSE}
+# Add packages here that you use, but don't load via library.
+rlang::check_installed(c("base"))
+
+# dplyr can conflict with other packages, but the pipe is universally helpful.
+# We could start using the new R4.0 pipe |>
+library(magrittr)
+
+# Knitr options are helpful, such as turning off code blocks.
+knitr::opts_chunk$set(
+  fig.width=6.5, fig.height=6, # This works for 1in margins, use 7.5/6 for 0.5 margins
+  fig.path="Figures/", # Store the figures, handing for referring back to the report
+  echo=FALSE, # Turn off code blocks
+  warning=TRUE, # Turn off warnings and messages. Only do when you know what they are.
+  message=TRUE,
+  fig.align="left" # Left align figures to get most space.
+)
+```
+
+# Examples
+
+We can see a figure such as Figure \@ref(fig:plot-cars). Or a table such as Table \@ref(tab:cars-table).
+
+```{r plot-cars, fig.cap="Plot of the first two variables of cars dataset."}
+plot(cars)
+```
+
+```{r cars-table}
+knitr::kable(
+  summary(cars),
+  caption="Numerical summary of the cars dataset using summary.",
+  booktabs = TRUE
+) %>%
+  kableExtra::kable_styling()
+
+```
+
+
+<!---
+ATTENTION: The code below will accumulate all of the code blocks and print them out
+here, as section (called Code). This allows you to still have the code but not clutter
+the report.
+--->
+\newpage
+# Code
+This section includes all of the code blocks from this report, in order to facilitate 
+reproducible research and provide additional details on the report. 
+
+```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE}
+```
 
 
 <!---
